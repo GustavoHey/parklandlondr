@@ -4,6 +4,8 @@
 // @version      1.1
 // @description  CONEXÃO PRINCIPAL PARKLAND
 // @author       Gustavo Henrique Cirillo
+// @downloadURL https://raw.githubusercontent.com/GustavoHey/parklandlondr/main/parkland.js
+// @updateURL https://raw.githubusercontent.com/GustavoHey/parklandlondr/main/parkland.js
 // @match        *://*.facebook.com/*
 // @match        *://*.twitter.com/*
 // @match        *://*.x.com/*
