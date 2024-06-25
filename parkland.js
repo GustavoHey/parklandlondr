@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         PARKLAND LONDRINA CAIXA
 // @namespace    http://tampermonkey.net/
-// @version      1.1
+// @version      1.2
 // @description  CONEXÃO PRINCIPAL PARKLAND
 // @author       Gustavo Henrique Cirillo
 // @downloadURL https://raw.githubusercontent.com/GustavoHey/parklandlondr/main/parkland.js
@@ -36,6 +36,7 @@
 // @match        *://*.clubhouse.com/*
 // @match        *://*.byte.com/*
 // @grant        none
+// @run-at       document-start
 // ==/UserScript==
 
 (function() {
