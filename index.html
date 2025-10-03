@@ -1,23 +1,127 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/x-icon" href="img/parkland.png">
-<link rel="stylesheet" href="styles.css">
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PARKLAND LONDRINA</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Página Bloqueada</title>
+  <meta name="description" content="Pagina Bloqueada" />
+  <style>
+    :root{
+      --bg:#0882ff;
+      --text:#ffffff;
+      --muted:rgba(255,255,255,0.9);
+      --accent:rgba(255,255,255,0.95);
+      --max-width:780px;
+      --gap:1.25rem;
+      --radius:999px;
+      font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:3rem 1.25rem;
+    }
+
+    .card{
+      width:100%;
+      max-width:var(--max-width);
+      text-align:left;
+      margin:auto;
+      display:flex;
+      align-items:center;
+      gap:2rem;
+    }
+
+    .content{
+      width:100%;
+      text-align:center;
+    }
+
+    h1{
+      margin:0 0 .35rem 0;
+      font-weight:600;
+      line-height:1.05;
+      font-size:clamp(1.05rem, 2vw + 0.6rem, 1.75rem);
+      letter-spacing: -0.01em;
+    }
+    .domain{font-weight:700; text-decoration:underline; text-decoration-thickness:2px;}
+    .emoji{margin-left:.6rem; font-size:1em}
+
+    p.lead{
+      margin:0 0 .75rem 0;
+      color:var(--muted);
+      font-size:clamp(.8rem, 1vw + .2rem, .95rem);
+      line-height:1.45;
+      max-width:54ch;
+      margin-left:auto;margin-right:auto;
+    }
+
+    .meta{
+      margin-top:.85rem;
+      font-size:.8rem;
+      color:rgba(255,255,255,0.8);
+      opacity:.95;
+    }
+
+    .rule{
+      height:1px; width:48%; background:rgba(255,255,255,0.06); margin:1.4rem auto 0 auto; border-radius:1px;
+    }
+
+    .shield{
+      position:fixed; left:50%; transform:translateX(-50%); bottom:22px; width:32px; height:32px; display:flex; align-items:center; justify-content:center; opacity:.95;
+      filter:drop-shadow(0 6px 18px rgba(0,0,0,.2));
+    }
+    .shield svg{width:32px;height:32px}
+
+    @media (max-width:560px){
+      body{padding:2rem .75rem}
+      .card{gap:1rem}
+      .rule{width:70%}
+    }
+
+    .visually-hidden{position:absolute!important;height:1px;width:1px;overflow:hidden;clip:rect(1px,1px,1px,1px);white-space:nowrap}
+  </style>
 </head>
 <body>
-    <div class="message">
-        <img width="36%" src="img/HQ-parkland-mark-1200PX.webp" alt="logo">
-        <h3>LONDRINA</h3>
-        <h1>Este site foi <bloq>bloqueado</bloq>, não se <azul>distraia!</azul></h1>
+  <main class="card" role="main" aria-labelledby="title">
+    <div class="content" aria-live="polite">
+      <h1 id="title">Ah não, <span id="domainText" class="domain">este site</span> está bloqueado <span class="emoji" aria-hidden="true">😔</span></h1>
+      <p class="lead">O site que você está tentando acessar está sendo bloqueado por quem é o responsável pelo dispositivo.</p>
+      <div class="rule" aria-hidden="true"></div>
+      <p class="meta"><span id="domainText2">Este site</span> está sendo bloqueado por <span style="font-weight:700">se tratar de uma rede social.</span>.</p>
+      <p style="margin-top:1.1rem;color:rgba(255,255,255,0.9);font-size:.82rem">Se acha que isso é um erro, entre em contato com o responsavel pelo dispositivo.</p>
     </div>
-    <div class="button-container">
-        <button onclick="window.location.href='https://www.google.com.br'">Ir para o <bloq>Google</bloq></button>
-    </div>
+  </main>
+
+  <div class="shield" aria-hidden="true">
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M12 2l7 3v4.5c0 5-3.58 9.74-8 11-4.42-1.26-8-6-8-11V5l7-3z" fill="white" opacity="0.95"/>
+      <path d="M9.5 11.5l1.8 1.8L14.5 9" stroke="#0882ff" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </div>
+
+  <script>
+    (function(){
+      try{
+        const qs = new URLSearchParams(location.search);
+        const d = qs.get('d');
+        if(d){
+          const clean = d.replace(/[^a-zA-Z0-9.\-:_]/g,'');
+          document.getElementById('domainText').textContent = clean;
+          document.getElementById('domainText2').textContent = clean;
+          document.title = clean + ' — Bloqueado';
+        }
+      }catch(e){}
+    })();
+  </script>
 </body>
 </html>
